@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ट्रक वाला — Indian Truck Driver Songs | Horn OK Please</title>
+  <meta name="description" content="ट्रक वाला — Ride the eternal Indian highway. Retro Bollywood songs, truck vibes, horn ok please. Classic 90s Hindi hits curated for the road." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Yatra+One&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       GRAIN OVERLAY
+  ═══════════════════════════════════════════ -->
+  <div id="grain" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════════
+       FOG LAYERS
+  ═══════════════════════════════════════════ -->
+  <div id="fog-container" aria-hidden="true">
+    <div class="fog-layer fog-1"></div>
+    <div class="fog-layer fog-2"></div>
+    <div class="fog-layer fog-3"></div>
+    <div class="fog-layer fog-4"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       DUST PARTICLES
+  ═══════════════════════════════════════════ -->
+  <div id="particles" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════════
+       TOPBAR
+  ═══════════════════════════════════════════ -->
+  <header id="topbar">
+    <span id="clock" aria-label="Current time">11:49 pm</span>
+
+    <div id="listener-badge" aria-label="Live listeners on the highway">
+      <span id="listener-dot" aria-hidden="true"></span>
+      <span id="listener-count">42</span>
+      <span id="listener-label">&nbsp;on the highway</span>
+    </div>
+
+    <div id="topbar-right">
+      <button id="mute-btn" title="Toggle mute (M)" aria-label="Toggle mute">
+        <svg id="icon-unmute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+        <svg id="icon-mute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+      </button>
+      <button id="fullscreen-btn" title="Toggle fullscreen (F)" aria-label="Toggle fullscreen">
+        <svg id="icon-expand" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+        <svg id="icon-compress" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden"><polyline points="4 14 10 14 10 20"/><polyline points="20 10 14 10 14 4"/><line x1="10" y1="14" x2="3" y2="21"/><line x1="21" y1="3" x2="14" y2="10"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════
+       HERO TITLE
+  ═══════════════════════════════════════════ -->
+  <main id="main-stage">
+    <h1 id="hero-title" aria-label="Truck Wala">ट्रक वाला</h1>
+  </main>
+
+  <!-- ═══════════════════════════════════════════
+       BUMPER SHAYARI
+  ═══════════════════════════════════════════ -->
+  <section id="shayari-wrap" aria-label="Bumper shayari">
+    <p id="shayari-text">लटक मत, पटक दूँगा।</p>
+    <button id="shayari-cycle-btn" title="Next quote" aria-label="Next bumper shayari">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+    </button>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       PLAYLIST PANEL (toggled)
+  ═══════════════════════════════════════════ -->
+  <aside id="playlist-panel" aria-label="Playlist" aria-hidden="true">
+
+    <!-- sticky header: category tabs only -->
+    <div id="playlist-header">
+      <div id="cat-tabs" role="tablist" aria-label="Music categories">
+        <button class="cat-tab active" data-cat="90s"       role="tab" aria-selected="true">🎵 90s Hits</button>
+        <button class="cat-tab"        data-cat="bollywood" role="tab" aria-selected="false">🎬 Bollywood</button>
+        <button class="cat-tab"        data-cat="bhojpuri"  role="tab" aria-selected="false">🥁 Bhojpuri</button>
+        <button class="cat-tab"        data-cat="marathi"   role="tab" aria-selected="false">🌿 Marathi</button>
+      </div>
+    </div>
+
+    <!-- scrollable track list -->
+    <div id="playlist-body">
+      <ol id="playlist-list" role="list"></ol>
+    </div>
+  </aside>
+
+  <!-- ═══════════════════════════════════════════
+       FLOATING PLAYER BAR
+  ═══════════════════════════════════════════ -->
+  <div id="player-dock" role="region" aria-label="Music player">
+    <!-- Vinyl disc -->
+    <div id="vinyl-wrap">
+      <img id="vinyl-cover" src="" alt="Album art" draggable="false" />
+    </div>
+
+    <!-- Track info -->
+    <div id="track-info">
+      <span id="player-title">Pehli Pehli Baar Mohabbat Ki Hai</span>
+      <span id="player-artist">Kumar Sanu &amp; Alka Yagnik</span>
+    </div>
+
+    <!-- Controls -->
+    <div id="controls">
+      <button id="shuffle-btn" class="ctrl-btn" title="Shuffle" aria-label="Shuffle" aria-pressed="false">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
+      </button>
+      <button id="prev-btn" class="ctrl-btn" title="Previous (←)" aria-label="Previous track">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="19 20 9 12 19 4 19 20"/><line x1="5" y1="19" x2="5" y2="5"/></svg>
+      </button>
+      <button id="play-btn" class="ctrl-btn play-main" title="Play / Pause (Space)" aria-label="Play or pause">
+        <svg id="icon-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        <svg id="icon-pause" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="hidden"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+      </button>
+      <button id="next-btn" class="ctrl-btn" title="Next (→)" aria-label="Next track">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 4 15 12 5 20 5 4"/><line x1="19" y1="5" x2="19" y2="19"/></svg>
+      </button>
+      <button id="list-btn" class="ctrl-btn" title="Toggle playlist" aria-label="Toggle playlist" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+      </button>
+    </div>
+
+    <!-- Seek row -->
+    <div id="seek-row">
+      <span id="current-time">0:00</span>
+      <div id="seek-container">
+        <input id="seek-bar" type="range" min="0" max="1000" value="0" aria-label="Seek" />
+      </div>
+      <span id="total-time">0:00</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       HORN BUTTON
+  ═══════════════════════════════════════════ -->
+  <button id="horn-btn" title="Horn OK Please (H)" aria-label="Play horn sound">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+    <span class="horn-text-hi">हॉर्न ओके प्लीज़</span>
+    <span class="horn-text-en">Horn ok pleaseeee</span>
+  </button>
+
+  <!-- ═══════════════════════════════════════════
+       HIDDEN YT PLAYER
+  ═══════════════════════════════════════════ -->
+  <div id="yt-player" aria-hidden="true"></div>
+
+  <!-- YouTube IFrame API -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="app.js"></script>
+</body>
+</html>
