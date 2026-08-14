@@ -156,8 +156,9 @@
   ═══════════════════════════════════════════ -->
   <div id="yt-player" aria-hidden="true"></div>
 
-  <!-- YouTube IFrame API -->
-  <script src="https://www.youtube.com/iframe_api"></script>
+  <!-- app.js must load FIRST so onYouTubeIframeAPIReady is defined before YT API fires -->
   <script src="app.js"></script>
+  <!-- YouTube IFrame API — fires onYouTubeIframeAPIReady once loaded -->
+  <script src="https://www.youtube.com/iframe_api"></script>
 </body>
 </html>
