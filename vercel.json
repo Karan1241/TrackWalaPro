@@ -3,8 +3,11 @@
   "buildCommand": null,
   "outputDirectory": ".",
   "routes": [
-    { "src": "/assets/(.*)", "dest": "/assets/$1" },
-    { "src": "/tracks.json",  "dest": "/tracks.json" },
-    { "src": "/(.*)",          "dest": "/index.html" }
+    { "src": "/assets/(.*\\.[a-z0-9]+)", "dest": "/assets/$1" },
+    { "src": "/tracks\\.json",           "dest": "/tracks.json" },
+    { "src": "/app\\.js",                "dest": "/app.js" },
+    { "src": "/styles\\.css",            "dest": "/styles.css" },
+    { "src": "/search-proxy\\.js",       "dest": "/search-proxy.js" },
+    { "src": "/(.*)",                    "dest": "/index.html" }
   ]
 }
