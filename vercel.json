@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "buildCommand": null,
+  "outputDirectory": ".",
+  "routes": [
+    { "src": "/assets/(.*)", "dest": "/assets/$1" },
+    { "src": "/tracks.json",  "dest": "/tracks.json" },
+    { "src": "/(.*)",          "dest": "/index.html" }
+  ]
+}
